@@ -54,7 +54,7 @@ class Enemy {
 }
 
 class Player {
-  constructor(x = 500, y = 300){
+  constructor(x = 200, y = 375){
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y = y;
@@ -70,9 +70,9 @@ class Player {
 }
 
 let player = new Player();
-let enemy1 = new Enemy();
-let enemy2 = new Enemy();
-let enemy3 = new Enemy();
+let enemy1 = new Enemy(-70,60);
+let enemy2 = new Enemy(-70,140);
+let enemy3 = new Enemy(-70,230);
 let allEnemies = [enemy1, enemy2, enemy3];
 
 
