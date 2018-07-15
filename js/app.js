@@ -1,3 +1,4 @@
+/*
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -29,7 +30,50 @@ Enemy.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+*/
+//ES6 Format Luis Madrid
+class Enemy {
 
+  constructor(x, y){
+    this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+  }
+  speed() {
+    this.x += 50;
+
+  }
+
+  update(dt) {
+
+  }
+
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+}
+
+class Player {
+  constructor(x = 500, y = 300){
+    this.sprite = 'images/char-boy.png';
+    this.x = x;
+    this.y = y;
+  }
+
+  update(dt) {
+
+  }
+
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+}
+
+let player = new Player();
+let enemy1 = new Enemy();
+let enemy2 = new Enemy();
+let enemy3 = new Enemy();
+let allEnemies = [enemy1, enemy2, enemy3];
 
 
 // This listens for key presses and sends the keys to your
@@ -43,4 +87,5 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+    //console.log(allowedKeys[e.keyCode]);
 });
