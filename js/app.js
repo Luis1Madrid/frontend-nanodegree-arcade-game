@@ -39,13 +39,11 @@ class Enemy {
     this.x = x;
     this.y = y;
   }
-  speed() {
-    this.x += 50;
-
-  }
 
   update(dt) {
-
+    let dx = 10;
+    let dy = 10;
+    this.x += dx;
   }
 
   render() {
@@ -66,6 +64,10 @@ class Player {
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+
+  handleInput() {
+
   }
 }
 
