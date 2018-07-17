@@ -38,12 +38,18 @@ class Enemy {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.dx = Math.floor(Math.random()*8) + 2;
   }
 
   update(dt) {
-    let dx = 10;
-    let dy = 10;
-    this.x += dx;
+    // could be implemented for jumping bugs from line to line.
+    //let dy = 7;
+    this.x += this.dx;
+    console.log(this.dx);
+    if(this.x > 500) {
+      this.x = -70;
+      this.dx = Math.floor(Math.random()*8) + 2;
+    }
   }
 
   render() {
