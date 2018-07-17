@@ -45,7 +45,7 @@ class Enemy {
     // could be implemented for jumping bugs from line to line.
     //let dy = 7;
     this.x += this.dx;
-    console.log(this.dx);
+
     if(this.x > 500) {
       this.x = -70;
       this.dx = Math.floor(Math.random()*8) + 2;
@@ -72,8 +72,17 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  handleInput() {
+  handleInput(key) {
+    if (this.x > -20 && this.x < 500 && key == "left"){
+      this.x -= 100;
+    }
+    if (this.x > -20 && this.x < 500 && key == "right"){
+      this.x += 100;
+    }
+    if (this.x < 0 || this.x > 450) {
+      fall();
 
+    }
   }
 }
 
@@ -86,7 +95,7 @@ let allEnemies = [enemy1, enemy2, enemy3];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function keys(e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -95,5 +104,10 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-    //console.log(allowedKeys[e.keyCode]);
+    console.log(allowedKeys[e.keyCode]);
 });
+
+function fall(){
+  player.x = 200;
+  player.y = 375;
+}
