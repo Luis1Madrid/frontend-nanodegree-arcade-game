@@ -81,7 +81,16 @@ class Player {
     }
     if (this.x < 0 || this.x > 450) {
       fall();
-
+    }
+    if (this.y > -40 && this.y < 380 && key == "up") {
+      this.y -= 82;
+    }
+    if (this.y > -40 && this.y < 380 && key == "down") {
+      this.y += 82;
+    }
+    if (this.y < -40 || this.y > 380){
+      player.x = 200;
+      player.y = 375;
     }
   }
 }
