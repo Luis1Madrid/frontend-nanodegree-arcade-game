@@ -72,7 +72,7 @@ class Player {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-
+  // Mechanics to establish the use of the keyboard arrows.
   handleInput(key) {
     if (this.x > -20 && this.x < 500 && key == "left"){
       this.x -= 100;
@@ -83,7 +83,7 @@ class Player {
     if (this.x < 0 || this.x > 450) {
       fall();
     }
-    if (this.y > -40 && this.y < 380 && key == "up") {
+    if (this.y > -34 && this.y < 380 && key == "up") {
       this.y -= 82;
       winMessage();
     }
@@ -95,7 +95,7 @@ class Player {
     }
   }
 }
-
+// Setting up the Players and Enemies available on the game. More could be added if needed.
 let player = new Player();
 let enemy1 = new Enemy(-70,60);
 let enemy2 = new Enemy(-70,140);
@@ -117,11 +117,13 @@ document.addEventListener('keyup', function keys(e) {
     //console.log(allowedKeys[e.keyCode]);
 });
 
+//function which resets everything the player either tries to leave the game screen or win.
 function fall(){
   player.x = 200;
   player.y = 375;
 }
 
+// function with the mechanics to check collisions between bug and user. This fuction is then used on the Enemy class Update method, to constatly check for clashes.
 function checkCollisions() {
   let xPlayer = player.x;
   let yPlayer = player.y;
@@ -139,7 +141,7 @@ function checkCollisions() {
       }
   }
 }
-
+//Popup window creating elements needed and displaying them.
 function winMessage() {
     if (player.y < -30){
       setTimeout(function(){
@@ -167,7 +169,7 @@ function winMessage() {
       },800);
     }
   }
-
+// fuction which is used once the user clicks on the "play again" button from the popoup window.
   function playOnceMore() {
     let removeElement = document.querySelector("dialog");
     removeElement.remove();
