@@ -42,8 +42,7 @@ class Enemy {
   }
 
   update(dt) {
-    // could be implemented for jumping bugs from line to line.
-    //let dy = 7;
+
     this.x += this.dx;
 
     if(this.x > 500) {
@@ -66,7 +65,8 @@ class Player {
   }
 
   update(dt) {
-
+    //console.log(this.y);
+    //this.winMessage();
   }
 
   render() {
@@ -85,13 +85,13 @@ class Player {
     }
     if (this.y > -40 && this.y < 380 && key == "up") {
       this.y -= 82;
+      winMessage();
     }
     if (this.y > -40 && this.y < 380 && key == "down") {
       this.y += 82;
     }
     if (this.y < -40 || this.y > 380){
-      player.x = 200;
-      player.y = 375;
+      fall();
     }
   }
 }
@@ -114,7 +114,7 @@ document.addEventListener('keyup', function keys(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-    console.log(allowedKeys[e.keyCode]);
+    //console.log(allowedKeys[e.keyCode]);
 });
 
 function fall(){
@@ -139,3 +139,24 @@ function checkCollisions() {
       }
   }
 }
+
+function winMessage() {
+    if (player.y < -30){
+      setTimeout(function(){
+        fall();
+
+        let msg = document.createElement("dialog");
+        msg.className = "dialogBox";
+        document.body.append(msg);
+
+        let messageCongrats = document.createElement("h2");
+        messageCongrats.textContent = "Congratulations finishing the game!";
+        messageCongrats.style.font = "italic 1.5em Fira Sans";
+        msg.append(messageCongrats);
+
+        msg.style.display = "block";
+        msg.style.border = "1px solid #888";
+        msg.style.margin = "-40% auto";
+      },800);
+    }
+  }
