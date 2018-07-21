@@ -1,6 +1,12 @@
-frontend-nanodegree-arcade-game
-===============================
+Classic Arcade Game, Udacity Project.
+Luis Madrid, 07/21/2018
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+GAME OBJECTIVE;
+The purpose of the game is to take the player using the arrows on the keyboard to the water region of the map (represented by blue field regions). Be careful with the insect running from left to right, if the player collides with the insect, the player will restart at initial position.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Once the player reaches the water, it will take about 1 sec for a popup window congratulating the player, and ask if he/she would like to play again. Pressing the button will remove the popup window allowing the player to continue playing.
+
+CODE:
+The use of JavaScript and images are use to represent the game. Within JavaScript, the developer will find Class objects for Player and Enemy. Within then are multiple parameters and methods called (velocity, image representing the object, x and y coordinate system, among other useful data).
+
+Within the code, later on player, enemy1, enemy2 and enemy3 are declared as variable. If the developer would like to include additional enemies, use the New Enemy(x,y) object to declare additional enemies. X and Y should be numbers within off screen locations.
