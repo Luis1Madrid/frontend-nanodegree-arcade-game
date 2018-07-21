@@ -154,9 +154,21 @@ function winMessage() {
         messageCongrats.style.font = "italic 1.5em Fira Sans";
         msg.append(messageCongrats);
 
+        let playButton = document.createElement("button");
+        playButton.textContent = "Play again!";
+        playButton.className = "playAgain";
+        playButton.style.border = "2px solid #808080";
+        msg.append(playButton);
+        document.querySelector(".playAgain").addEventListener("click", playOnceMore);
+
         msg.style.display = "block";
         msg.style.border = "1px solid #888";
         msg.style.margin = "-40% auto";
       },800);
     }
+  }
+
+  function playOnceMore() {
+    let removeElement = document.querySelector("dialog");
+    removeElement.remove();
   }
