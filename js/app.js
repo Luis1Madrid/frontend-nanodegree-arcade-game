@@ -125,16 +125,17 @@ function fall(){
 function checkCollisions() {
   let xPlayer = player.x;
   let yPlayer = player.y;
-  let xEnemy = enemy1.x;
-  let yEnemy = enemy1.y;
-  let xEnemyHigh = xEnemy + 65;
-  let xEnemyLow = xEnemy - 65;
-  let yEnemyHigh = yEnemy + 20;
-  let yEnemyLow = yEnemy - 20;
-  if(xPlayer > xEnemyLow && xPlayer < xEnemyHigh && yPlayer > yEnemyLow && yPlayer < yEnemyHigh){
-    console.log("Clash!")
-    player.x = 200;
-    player.y = 375;
+  for (let enemy of allEnemies) {
+      let xEnemy = enemy.x;
+      let yEnemy = enemy.y;
+      let xEnemyHigh = xEnemy + 65;
+      let xEnemyLow = xEnemy - 65;
+      let yEnemyHigh = yEnemy + 20;
+      let yEnemyLow = yEnemy - 20;
+      if(xPlayer > xEnemyLow && xPlayer < xEnemyHigh && yPlayer > yEnemyLow && yPlayer < yEnemyHigh){
+        console.log("Clash!")
+        player.x = 200;
+        player.y = 375;
+      }
   }
-  //console.log(xEnemyHigh);
 }
